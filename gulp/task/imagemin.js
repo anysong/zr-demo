@@ -4,7 +4,7 @@ const gulp = require('gulp');
  * TODO image 压缩
  */
 
-gulp.task('imagemin', () => {
+gulp.task('imagemin-dev', () => {
     return gulp.src('./src/components/*/i/**')
         .pipe(gulp.dest('./dest/components/'))
 })

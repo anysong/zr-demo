@@ -8,7 +8,7 @@ const sequence = require('gulp-sequence');
  */
 
 gulp.task('build', () => {
-    sequence(['uglify', 'move-html-dist', 'imagemin-production'], () => {
-        console.log('打包完成');
-    });
+    sequence('init-dev', ['sass-pro', 'babel-pro', 'move-html-dest'], 'imagemin-dev', () => {
+       console.log('打包完成!');
+    })
 })

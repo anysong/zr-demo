@@ -30,7 +30,7 @@ var createWatch = () => {
     })
 }
 gulp.task('watch', () => {
-    sequence('init-dev', ['sass', 'babel', 'move-html-dest'], 'imagemin', () => {
+    sequence('init-dev', ['sass', 'babel', 'move-html-dest'], 'imagemin-dev', () => {
         createWatch();
         watch('./src/views/*.html', () => {
             gulp.start('move-html-dest');
