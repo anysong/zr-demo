@@ -81,10 +81,10 @@ Zr.add('./demo1/mock.js', function (zr, Mock) {
         Mock.mock(RegExp('/wareHouse/list' + '.*'), function () {
             var res = {
                 "data": {
-                    "1": "青龙",
-                    "2": "白虎",
-                    "3": "朱雀",
-                    "4": "玄武"
+                    "1": "item1",
+                    "2": "item2",
+                    "3": "item3",
+                    "4": "item4"
                 },
                 "errCode": "0",
                 "errMsg": "",

@@ -3,7 +3,7 @@
  * 
  */
 
-Zr.add('./demo2/demo2.js', function (zr, $, datePicker, modal, datatables, message, utils, API, http) {
+Zr.add('./demo2/demo2.js', function (zr, $, datePicker, modal, datatables, message, utils, API, http, tmpl) {
     var _table,
         $table,
         createRuleModal,
@@ -76,8 +76,8 @@ Zr.add('./demo2/demo2.js', function (zr, $, datePicker, modal, datatables, messa
             rowCallback: function () {},
             stateLoaded: function () {},
             createdRow: function (row, data, index) {
-                var $diableBtn = $('<a href="javascript:;" data-index="' + index + '" class="js-diable-btn tg-order-table-btn">' + Language.STATUS.unable + '</a>');
-                var $enableBtn = $('<a href="javascript:;" data-index="' + index + '" class="js-enable-btn tg-order-table-btn">' + Language.STATUS.enable + '</a>');
+                var $diableBtn = $('<a href="javascript:;" data-index="' + index + '" class="js-diable-btn tg-order-table-btn">停用</a>');
+                var $enableBtn = $('<a href="javascript:;" data-index="' + index + '" class="js-enable-btn tg-order-table-btn">启用</a>');
                 var $editBtn = $('<a href="javascript:;" data-index="' + index + '" class="js-edit-btn tg-order-table-btn">' + '编辑' + '</a>');
                 var $submitBtn = $('<a href="javascript:;" data-index="' + index + '" class="js-submit-btn tg-order-table-btn" style="display:none;">' + '确定' + '</a>');
                 
@@ -121,6 +121,8 @@ Zr.add('./demo2/demo2.js', function (zr, $, datePicker, modal, datatables, messa
         }
     }
     var parseDom = function (data) {
+        $('body').append(tmpl("tmpl-create", data)) //创建弹出层
+
         $storeList = $('input[name="orgFrom"]').siblings('.zr-dropdown-search-menu').children('.zr-dropdown-search-list');
         $storeInList = $('input[name="orgTo"]').siblings('.zr-dropdown-search-menu').children('.zr-dropdown-search-list');
         $typeList = $('input[name="exportType"]').siblings('.zr-dropdown-search-menu').children('.zr-dropdown-search-list');
@@ -175,13 +177,13 @@ Zr.add('./demo2/demo2.js', function (zr, $, datePicker, modal, datatables, messa
                 data: 'exportType',
                 render: function (key) {
                     var key = key + '';
-                    return Language.PARAMS.type[key] || '';
+                    return key || '';
                 }
             }, {
                 data: 'trunkStatus',
                 render: function (key) {
                     var key = key + '';
-                    return Language.PARAMS.status[key] || '';
+                    return key || '';
                 }
             }, {
                 data: 'updateTime',
@@ -241,7 +243,7 @@ Zr.add('./demo2/demo2.js', function (zr, $, datePicker, modal, datatables, messa
         queryReset: function () {
             _manager.queryParams = {};
             $('.js-form-query [data-toggle="value"]').val('');
-            $('.js-form-query [data-toggle="dropdown"]').children('.toggle-text').html(Language.STATUS.select);
+            $('.js-form-query [data-toggle="dropdown"]').children('.toggle-text').html('请选择');
             $('.js-form-query .zr-dropdown-search-list').children().removeClass('active');
             $('.js-form-query .zr-dropdown-search-list').each(function () {
                 $(this).children().eq(0).addClass('active');
@@ -294,7 +296,7 @@ Zr.add('./demo2/demo2.js', function (zr, $, datePicker, modal, datatables, messa
                 },
                 'success': function (ret) {
                     if (ret.success) {
-                        message.success(Language.STATUS.save_success);
+                        message.success('成功');
                         //刷新table数据
                         _table.ajax.reload();
                     } else {
@@ -317,7 +319,7 @@ Zr.add('./demo2/demo2.js', function (zr, $, datePicker, modal, datatables, messa
                 },
                 'success': function (ret) {
                     if (ret.success) {
-                        message.success(Language.STATUS.save_success);
+                        message.success('成功');
                         //刷新table数据
                         _table.ajax.reload();
                     } else {
@@ -336,13 +338,13 @@ Zr.add('./demo2/demo2.js', function (zr, $, datePicker, modal, datatables, messa
                 params = {};
             for (var i = 0; i < arr.length; i++) {
                 if (arr[i].value.length == 0) {
-                    message.error(Language.KEY[arr[i].name] + ' ' + Language.STATUS.nodata);
+                    message.error(arr[i] + '没数据');
                     return;
                 }
                 params[arr[i].name] = parseFloat(arr[i].value);
             }
             if (params.orgFrom === params.orgTo) {
-                message.error(Language.TEXT.orgFrom_orgTo_same);
+                message.error('失败');
                 return false;
             }
             params.stockType = 1;
@@ -355,12 +357,10 @@ Zr.add('./demo2/demo2.js', function (zr, $, datePicker, modal, datatables, messa
                     if (ret.success) {
                         //创建成功
                         createRuleModal.hide();
-                        // message.success(Language.STATUS.success);
                         message.success(ret.errMsg);
                         //刷新table数据
                         _table.ajax.reload();
                     } else {
-                        // message.success(Language.STATUS.fail);
                         message.error(ret.errMsg);
                     }
                 },
@@ -376,7 +376,7 @@ Zr.add('./demo2/demo2.js', function (zr, $, datePicker, modal, datatables, messa
         //创建查询数据重置
         createReset: function () {
             $('#createRuleModal [data-toggle="value"]').val('');
-            $('#createRuleModal [data-toggle="dropdown"]').children('.toggle-text').html(Language.STATUS.select);
+            $('#createRuleModal [data-toggle="dropdown"]').children('.toggle-text').html('请选择');
             $('#createRuleModal .zr-dropdown-search-list').children().removeClass('active');
             $('#createRuleModal .zr-dropdown-search-list').each(function () {
                 $(this).children().eq(0).addClass('active');
@@ -437,7 +437,7 @@ Zr.add('./demo2/demo2.js', function (zr, $, datePicker, modal, datatables, messa
         renderStore: function ($target, data) {
             var html = '';
             //TODO 判断语言
-            html = '<li class="search-list-item active"><a href="javascript:;" data-val="">' + Language.STATUS.all + '</a></li>'
+            html = '<li class="search-list-item active"><a href="javascript:;" data-val="">全部</a></li>'
             var json = data.data;
             for (var name in json) {
                 html += '<li class="search-list-item"><a href="javascript:;" data-val="' + name + '">' + json[name] + '</a></li>';
@@ -446,17 +446,17 @@ Zr.add('./demo2/demo2.js', function (zr, $, datePicker, modal, datatables, messa
         },
         //渲染类型列表
         renderType: function ($target, data) {
-            var html = '<li class="search-list-item active"><a href="javascript:;" data-val="">' + Language.STATUS.all + '</a></li>';
+            var html = '<li class="search-list-item active"><a href="javascript:;" data-val="">全部</a></li>';
             data.data.map(function (cur, i) {
-                html += '<li class="search-list-item"><a href="javascript:;" data-val="' + cur + '">' + Language.PARAMS.type[cur] + '</a></li>';
+                html += '<li class="search-list-item"><a href="javascript:;" data-val="' + cur + '">' + cur + '</a></li>';
             })
             $target.html(html);
         },
         //渲染状态列表
         renderStatus: function ($target, data) {
-            var html = '<li class="search-list-item active"><a href="javascript:;" data-val="">' + Language.STATUS.all + '</a></li>';
+            var html = '<li class="search-list-item active"><a href="javascript:;" data-val="">全部</a></li>';
             data.data.map(function (cur, i) {
-                html += '<li class="search-list-item"><a href="javascript:;" data-val="' + cur + '">' + Language.PARAMS.status[cur] + '</a></li>';
+                html += '<li class="search-list-item"><a href="javascript:;" data-val="' + cur + '">' + cur + '</a></li>';
             })
             $target.html(html);
         }
@@ -479,5 +479,5 @@ Zr.add('./demo2/demo2.js', function (zr, $, datePicker, modal, datatables, messa
         init: init
     }
 }, {
-    requires: ['jquery', 'datePicker', 'modal', 'datatables', 'message', '/base/utils.js', '/base/api.js', '/base/http.js']
+    requires: ['jquery', 'datePicker', 'modal', 'datatables', 'message', '/base/utils.js', '/base/api.js', '/base/http.js', 'tmpl']
 })
