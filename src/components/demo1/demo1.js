@@ -1,6 +1,6 @@
 /**
  * @author DYY
- * 查询
+ * 
  */
 
 Zr.add('./demo1/demo1.js', function (zr, $, datePicker, modal, datatables, tmpl, message, utils, API, http) {

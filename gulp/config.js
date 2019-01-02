@@ -3,7 +3,8 @@ var config = {
         'base',
         'ui',
         'i18n',
-        'demo1'
+        'demo1',
+        'demo2'
     ]
 };
 

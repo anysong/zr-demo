@@ -1,6 +1,14 @@
 Zr.add('./base/api.js', function (zr) {
     var API = {
-        TRUNK: {},
+        TRUNK: {
+            "list": "/trunk/list",
+            "save": "/trunk/save",
+            "getExportType": "/trunk/exporttype",
+            "getTrunkStatus": "/trunk/trunkstatus",
+            "getStoreList": "/wareHouse/list",
+            "modifyStateToStart": "/trunk/start",
+            "modifyStateToStop": "/trunk/stop"
+        },
         ORDER: {
             "list": "/order/list",
             "detail": "/order/detail",

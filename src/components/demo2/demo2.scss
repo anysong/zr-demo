@@ -1,0 +1,161 @@
+@import '../base/base.scss';
+
+//查询模块
+.tg-order {
+    background: white;
+    padding: 0 20px;
+    .zr-layout-header {
+        height: 50px;
+        line-height: 50px;
+        border: 1px solid #d9d9d9;
+        border-bottom: 2px solid #e2231a;
+        margin-bottom: 4px;
+        padding: 0;
+        line-height: 20px;
+        padding: 0 20px;
+        padding-top: 15px;
+        .tg-order-banner-icon {
+            font-size: 20px;
+            float: left;
+            height: 20px;
+            color: #e2231a;
+            font-weight: bold;
+        }
+        .tg-order-banner-text {
+            font-size: 16px;
+            padding-left: 10px;
+            font-weight: bold;
+            float: left;
+        }
+        button {
+            margin-right: 4px;
+        }
+        &.tg-order-btn-group {
+            padding-top: 8px;
+        }
+    }
+    .zr-layout-content {
+        .zr-input-group {
+            margin: 0;
+        }
+        .tg-order-wrap {
+            border: 1px solid #d9d9d9;
+            padding: 20px;
+            //查询区
+            &.tg-order-query {
+                margin-bottom: 4px;
+                //楼层
+                // .query-block {
+                //     margin-bottom: 10px;
+                // }
+                .tg-order-item {
+                    margin-bottom: 10px;
+                }
+                //文本缩进
+                .text-title {
+                    text-align: right;
+                    line-height: 32px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+            //table 覆盖
+            .zr-table-wrap-mix {
+                border: 0;
+                overflow-x: auto;
+                .tg-order-table-btn {
+                    // display: inline-block;
+                }
+                //改变每页条数
+                .dataTables_length {
+                    float: right;
+                    margin-bottom: 10px;
+                    label {
+                        line-height: 32px;
+                        display: inline-block;
+                        .zr-unselect {
+                            width: 100px;
+                        }
+                    }
+                }
+                //表格
+                .dataTable {
+                    border: 1px solid #d9d9d9;
+                    thead {
+                        background-color: #d9d9d9;
+                        tr {
+                            th {
+                                white-space: nowrap;
+                                vertical-align: middle;
+                            }
+                        }
+                    }
+                    tbody {
+                        tr {
+                            td {
+                                white-space: nowrap;
+                                vertical-align: middle;
+                                a {
+                                    margin-right: 2px;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                //信息
+                .dataTables_info {
+                    display: block;
+                    margin-top: 10px;
+                    font-size: 14px;
+                }
+                //分页
+                .dataTables_paginate {
+                    margin-top: 10px;
+                    .paginate_button {
+                        &.current {
+                            background: #e2231a;
+                            border: 1px solid #e2231a;
+                        }
+                        &:hover {
+                            background: #e2231a;
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#createRuleModal {
+    .zr-modal-dialog {
+        .zr-modal-content {
+            width: 500px;
+            .zr-modal-body {
+                .search-floor-wrap {
+                    padding: 0 100px;
+                    margin-bottom: 14px;
+                    &.last-one {
+                        margin: 0;
+                    }
+                    &::after {
+                        content: '';
+                        height: 0;
+                        visibility: hidden;
+                        clear: both;
+                        display: block;
+                    }
+                    .text-title {
+                        text-align: right;
+                        line-height: 32px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo2</title>
+</head>
+
+<body>
+    <div class="zr-layout tg-order">
+        <!-- banner -->
+        <div class="zr-layout-header zr-col-24">
+            <i class="zricon-doc-empty tg-order-banner-icon"></i>
+            <span class="tg-order-banner-text">标题</span>
+        </div>
+        <!-- 查询条件 -->
+        <div class="zr-layout-content grey-bgc-4">
+            <form action="" class="tg-order-wrap tg-order-query js-form-query">
+                <!-- 第一行 -->
+                <div class="zr-row-flex zr-row-flex-start query-block">
+                    <div class="zr-col-md-8 zr-col-sm-12 zr-col-xs-24 tg-order-item">
+                        <div class="zr-col-8">
+                            <div class="text-title">标题：</div>
+                        </div>
+                        <div class="zr-col-16">
+                            <!-- 出库下拉 -->
+                            <div class="zr-dropdown-search">
+                                <input type="hidden" name="orgFrom" data-toggle="value" />
+                                <button type="button" data-toggle="dropdown" class="zr-dropdown-search-toggle zr-btn">
+                                    <span class="toggle-text">请选择</span>
+                                    <i class="zricon-arrow-down"></i>
+                                </button>
+                                <ul class="zr-dropdown-search-menu">
+                                    <div class="zr-dropdown-search-query">
+                                        <span class="search-query-title">搜索</span>
+                                        <input class="search-query-input zr-input" type="text">
+                                    </div>
+                                    <ul class="zr-dropdown-search-list">
+                                        <li class="search-list-item active"><a href="javascript:;" data-val="-1">请选择</a></li>
+                                    </ul>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zr-col-md-8 zr-col-sm-12 zr-col-xs-24 tg-order-item">
+                        <div class="zr-col-8">
+                            <div class="text-title">标题2：</div>
+                        </div>
+                        <div class="zr-col-16">
+                            <!-- 入库下拉 -->
+                            <div class="zr-dropdown-search">
+                                <input type="hidden" name="orgTo" data-toggle="value" />
+                                <button type="button" data-toggle="dropdown" class="zr-dropdown-search-toggle zr-btn">
+                                    <span class="toggle-text">请选择</span>
+                                    <i class="zricon-arrow-down"></i>
+                                </button>
+                                <ul class="zr-dropdown-search-menu">
+                                    <div class="zr-dropdown-search-query">
+                                        <span class="search-query-title">搜索</span>
+                                        <input class="search-query-input zr-input" type="text">
+                                    </div>
+                                    <ul class="zr-dropdown-search-list">
+                                        <li class="search-list-item active"><a href="javascript:;" data-val="-1">请选择</a></li>
+                                    </ul>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 第二行 -->
+                <div class="zr-row-flex zr-row-flex-start query-block">
+                    <div class="zr-col-md-8 zr-col-sm-12 zr-col-xs-24 tg-order-item">
+                        <div class="zr-col-8">
+                            <div class="text-title">标题3：</div>
+                        </div>
+                        <div class="zr-col-16">
+                            <!-- 类型 -->
+                            <div class="zr-dropdown-search">
+                                <input type="hidden" name="exportType" data-toggle="value" />
+                                <button type="button" data-toggle="dropdown" class="zr-dropdown-search-toggle zr-btn">
+                                    <span class="toggle-text">请选择</span>
+                                    <i class="zricon-arrow-down"></i>
+                                </button>
+                                <ul class="zr-dropdown-search-menu">
+                                    <div class="zr-dropdown-search-query">
+                                        <span class="search-query-title">搜索</span>
+                                        <input class="search-query-input zr-input" type="text">
+                                    </div>
+                                    <ul class="zr-dropdown-search-list">
+                                        <li class="search-list-item active"><a href="javascript:;" data-val="all">全部</a></li>
+                                    </ul>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zr-col-md-8 zr-col-sm-12 zr-col-xs-24 tg-order-item">
+                        <div class="zr-col-8">
+                            <div class="text-title">标题4：</div>
+                        </div>
+                        <div class="zr-col-16">
+                            <!-- 状态 -->
+                            <div class="zr-dropdown-search">
+                                <input type="hidden" name="trunkStatus" data-toggle="value" />
+                                <button type="button" data-toggle="dropdown" class="zr-dropdown-search-toggle zr-btn">
+                                    <span class="toggle-text">请选择</span>
+                                    <i class="zricon-arrow-down"></i>
+                                </button>
+                                <ul class="zr-dropdown-search-menu">
+                                    <div class="zr-dropdown-search-query">
+                                        <span class="search-query-title">搜索</span>
+                                        <input class="search-query-input zr-input" type="text">
+                                    </div>
+                                    <ul class="zr-dropdown-search-list">
+                                        <li class="search-list-item active"><a href="javascript:;" data-val="all">全部</a></li>
+                                    </ul>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zr-col-md-8 zr-col-sm-24" style="text-align:right;">
+                        <button type="button" class="zr-btn zr-btn-danger js-query">搜索
+                            <i class="zricon-spin6 animate-spin" style="display:none"></i>
+                        </button>
+                        <button type="button" class="zr-btn zr-btn-default js-reset">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- 按钮条 -->
+        <div class="zr-layout-header tg-order-btn-group">
+            <button type="button" class="zr-btn zr-btn-danger fl js-rule-create">创建</button>
+        </div>
+        <!-- 列表 -->
+        <div class="zr-layout-content grey-bgc-4">
+            <div class="tg-order-wrap">
+                <div class="zr-table-wrap-mix zr-table-wrap zr-table-checkbox">
+                    <table id="dt" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>项目</th>
+                                <th>项目</th>
+                                <th>项目</th>
+                                <th>项目</th>
+                                <th>项目</th>
+                                <th>项目</th>
+                                <th>项目</th>
+                                <th>项目</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="zr-modal zr-modal-lg zr-modal-size-lg" id="createRuleModal">
+            <div class="zr-modal-dialog">
+                <div class="zr-modal-content">
+                    <div class="zr-modal-header">
+                        <p class="zr-modal-title">
+                            <span>设置</span>
+                            <i class="zricon-close zr-modal-close"></i>
+                        </p>
+                    </div>
+                    <div class="zr-modal-body">
+                        <form action="" class="js-form-create">
+                            <div class="search-floor-wrap">
+                                <div class="zr-col-24">
+                                    <div class="zr-col-9">
+                                        <div class="text-title">项目1：</div>
+                                    </div>
+                                    <div class="zr-col-15">
+                                        <!-- 出库下拉 -->
+                                        <div class="zr-dropdown-search">
+                                            <input type="hidden" name="orgFrom" data-toggle="value" />
+                                            <button type="button" data-toggle="dropdown" class="zr-dropdown-search-toggle zr-btn">
+                                                <span class="toggle-text">请选择</span>
+                                                <i class="zricon-arrow-down"></i>
+                                            </button>
+                                            <ul class="zr-dropdown-search-menu">
+                                                <div class="zr-dropdown-search-query">
+                                                    <span class="search-query-title">搜索</span>
+                                                    <input class="search-query-input zr-input" type="text">
+                                                </div>
+                                                <ul class="zr-dropdown-search-list">
+                                                    <li class="search-list-item active"><a href="javascript:;" data-val="-1">请选择</a></li>
+                                                </ul>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="search-floor-wrap">
+                                <div class="zr-col-24">
+                                    <div class="zr-col-9">
+                                        <div class="text-title">项目2：</div>
+                                    </div>
+                                    <div class="zr-col-15">
+                                        <!-- 入库下拉 -->
+                                        <div class="zr-dropdown-search">
+                                            <input type="hidden" name="orgTo" data-toggle="value" />
+                                            <button type="button" data-toggle="dropdown" class="zr-dropdown-search-toggle zr-btn">
+                                                <span class="toggle-text">请选择</span>
+                                                <i class="zricon-arrow-down"></i>
+                                            </button>
+                                            <ul class="zr-dropdown-search-menu">
+                                                <div class="zr-dropdown-search-query">
+                                                    <span class="search-query-title">搜索</span>
+                                                    <input class="search-query-input zr-input" type="text">
+                                                </div>
+                                                <ul class="zr-dropdown-search-list">
+                                                    <li class="search-list-item active"><a href="javascript:;" data-val="-1">请选择</a></li>
+                                                </ul>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="search-floor-wrap last-one">
+                                <div class="zr-col-24">
+                                    <div class="zr-col-9">
+                                        <div class="text-title">项目3：</div>
+                                    </div>
+                                    <div class="zr-col-15">
+                                        <!-- 类型 -->
+                                        <div class="zr-dropdown-search">
+                                            <input type="hidden" name="exportType" data-toggle="value" />
+                                            <button type="button" data-toggle="dropdown" class="zr-dropdown-search-toggle zr-btn">
+                                                <span class="toggle-text">请选择</span>
+                                                <i class="zricon-arrow-down"></i>
+                                            </button>
+                                            <ul class="zr-dropdown-search-menu">
+                                                <div class="zr-dropdown-search-query">
+                                                    <span class="search-query-title">搜索</span>
+                                                    <input class="search-query-input zr-input" type="text">
+                                                </div>
+                                                <ul class="zr-dropdown-search-list">
+                                                    <li class="search-list-item active"><a href="javascript:;" data-val="all">请选择</a></li>
+                                                </ul>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="zr-modal-footer">
+                        <button class="zr-btn zr-btn-default zr-modal-btn zr-modal-cancel">关闭</button>
+                        <button class="zr-btn zr-btn-danger zr-modal-btn zr-modal-enter js-create-submit">提交
+                            <i class="zricon-spin6 animate-spin" style="display:none"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- script -->
+    <script src="//storage.360buyimg.com/v1.0.0/zr.min.js"></script>
+    <script type="text/javascript">
+        var baseUrl, requestTime;
+        // Zr.global.env = 'dist'; 
+        if (Zr.global.env === 'dist') {
+            baseUrl = '/static/components/'; //发布环境
+            requestTime = false
+        } else {
+            baseUrl = '/dest/components/'; //开发环境
+            requestTime = true
+        }
+        Zr.config({
+            baseUrl: baseUrl, //本地测试
+            requestTime: requestTime
+        })
+
+        /**
+         * 根据url判断语言
+         * 加载相应语言包
+         * 初始化
+         */
+
+        Zr.ready(function () {
+            Zr.use('./demo2/entrance.js');
+        })
+    </script>
+</body>
+
+</html>
