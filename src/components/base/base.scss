@@ -1,0 +1,47 @@
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+
+
+.zr-input {
+    &:focus {
+        border: 1px solid #d22;
+    }
+}
+.zr-btn-default {
+    &:hover {
+        border: 1px solid #d22;
+        color: #d22;
+    }
+}
+.zr-datepicker-default {
+    span {
+        border: 1px solid #d22 !important;
+    }
+}
+.zr-datepicker-choose {
+    span {
+        background-color: #d22 !important;
+        border: 1px solid #d22 !important;
+    }
+}
+.zr-datepicker-btn-ok {
+    background-color: #d22 !important;
+    border: 1px solid #d22 !important;
+
+}
+.zr-textarea {
+    &:focus {
+        border: 1px solid #d22;
+    }
+}
+.zr-modal-btn {
+    width: auto !important;
+}
+
+[contenteditable=true] {
+    background-color: #fffdfa !important;
+}

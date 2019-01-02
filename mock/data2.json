@@ -1,0 +1,22 @@
+{
+  "outWarehouse": [
+    { "title": "大仓" },
+    { "title": "移动仓" }
+  ],
+  "inWarehouse": [
+    { "title": "补货内配" },
+    { "title": "退回内配" }
+  ],
+  "type": [
+    { "title": "补货内配" },
+    { "title": "退回内配" }
+  ],
+  "status": [
+    { "status": "启用" },
+    { "status": "停用" }
+  ],
+  "SKU": {
+    "name": "格力空调",
+    "number": 500
+  }
+}

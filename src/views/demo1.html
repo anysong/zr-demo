@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo1</title>
+</head>
+
+<body>
+    <div class="zr-layout tg-order">
+        <!-- 详情容器 -->
+        <div id="search-info-box"></div>
+    </div>
+    <script type="text/x-tmpl" id="tmpl-main">
+        <!-- banner -->
+        <div class="zr-layout-header zr-col-24">
+            <i class="zricon-doc-empty tg-order-banner-icon"></i>
+            <span class="tg-order-banner-text">{%= o.TEXT.title %}</span>
+        </div>
+        <!-- 查询条件 -->
+        <div class="zr-layout-content grey-bgc-4">
+            <form action="" class="tg-order-wrap tg-order-query js-form-query">
+                <!-- 第一行 -->
+                <div class="zr-row-flex zr-row-flex-start query-block">
+                    <div class="zr-col-md-8 zr-col-sm-12 zr-col-xs-24 tg-order-item text-block">
+                        <div class="zr-col-8">
+                            <div class="text-title">{%= o.KEY.storeFrom %}：</div>
+                        </div>
+                        <div class="zr-col-16">
+                            <!-- 出库下拉 -->
+                            <div class="zr-dropdown-search">
+                                <input type="hidden" name="storeFrom" data-toggle="value" />
+                                <button type="button" data-toggle="dropdown" class="zr-dropdown-search-toggle zr-btn">
+                                    <span class="toggle-text">{%= o.STATUS.select %}</span>
+                                    <i class="zricon-arrow-down"></i>
+                                </button> 
+                                <ul class="zr-dropdown-search-menu">
+                                    <div class="zr-dropdown-search-query">
+                                        <span class="search-query-title">{%= o.PLUGIN.search %}</span>
+                                        <input class="search-query-input zr-input" type="text">
+                                    </div>
+                                    <ul class="zr-dropdown-search-list">
+                                        <li class="search-list-item active"><a href="javascript:;" data-val="-1">{%= o.STATUS.select %}</a></li>
+                                    </ul>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zr-col-md-8 zr-col-sm-12 zr-col-xs-24 tg-order-item text-block">
+                        <div class="zr-col-8">
+                            <div class="text-title">{%= o.KEY.storeTo %}：</div>
+                        </div>
+                        <div class="zr-col-16">
+                            <!-- 入库下拉 -->
+                            <div class="zr-dropdown-search">
+                                <input type="hidden" name="storeTo" data-toggle="value" />
+                                <button type="button" data-toggle="dropdown" class="zr-dropdown-search-toggle zr-btn">
+                                    <span class="toggle-text">{%= o.STATUS.select %}</span>
+                                    <i class="zricon-arrow-down"></i>
+                                </button> 
+                                <ul class="zr-dropdown-search-menu">
+                                    <div class="zr-dropdown-search-query">
+                                        <span class="search-query-title">{%= o.PLUGIN.search %}</span>
+                                        <input class="search-query-input zr-input" type="text">
+                                    </div>
+                                    <ul class="zr-dropdown-search-list">
+                                        <li class="search-list-item active"><a href="javascript:;" data-val="-1">{%= o.STATUS.select %}</a></li>
+                                    </ul>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第二行 -->
+                <div class="zr-row-flex zr-row-flex-start query-block">
+                    <div class="zr-col-md-8 zr-col-sm-12 zr-col-xs-24 tg-order-item text-block">
+                        <div class="zr-col-8">
+                            <div class="text-title">{%= o.KEY.exportType %}：</div>
+                        </div>
+                        <div class="zr-col-16">
+                            <!-- 类型 -->
+                            <div class="zr-dropdown-search">
+                                <input type="hidden" name="exportType" data-toggle="value" />
+                                <button type="button" data-toggle="dropdown" class="zr-dropdown-search-toggle zr-btn">
+                                    <span class="toggle-text">{%= o.STATUS.select %}</span>
+                                    <i class="zricon-arrow-down"></i>
+                                </button> 
+                                <ul class="zr-dropdown-search-menu">
+                                    <div class="zr-dropdown-search-query">
+                                        <span class="search-query-title">{%= o.PLUGIN.search %}</span>
+                                        <input class="search-query-input zr-input" type="text">
+                                    </div>
+                                    <ul class="zr-dropdown-search-list">
+                                        <li class="search-list-item active"><a href="javascript:;" data-val="all">{%= o.STATUS.all %}</a></li>
+                                    </ul>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zr-col-md-8 zr-col-sm-12 zr-col-xs-24 tg-order-item text-block">
+                        <div class="zr-col-8">
+                            <div class="text-title">{%= o.KEY.yn %}：</div>
+                        </div>
+                        <div class="zr-col-16">
+                            <!-- 单据状态 -->
+                            <div class="zr-dropdown-search">
+                                <input type="hidden" name="yn" data-toggle="value" />
+                                <button type="button" data-toggle="dropdown" class="zr-dropdown-search-toggle zr-btn">
+                                    <span class="toggle-text">{%= o.STATUS.select %}</span>
+                                    <i class="zricon-arrow-down"></i>
+                                </button> 
+                                <ul class="zr-dropdown-search-menu">
+                                    <div class="zr-dropdown-search-query">
+                                        <span class="search-query-title">{%= o.PLUGIN.search %}</span>
+                                        <input class="search-query-input zr-input" type="text">
+                                    </div>
+                                    <ul class="zr-dropdown-search-list">
+                                        <li class="search-list-item active"><a href="javascript:;" data-val="all">{%= o.STATUS.all %}</a></li>
+                                    </ul>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第三行 -->
+                <div class="zr-row-flex zr-row-flex-start query-block">
+                    <div class="zr-col-md-8 zr-col-sm-12 zr-col-xs-24 tg-order-item text-block">
+                        <div class="zr-col-8">
+                            <div class="text-title">{%= o.KEY.state %}：</div>
+                        </div>
+                        <div class="zr-col-16">
+                            <!-- 单据 -->
+                            <div class="zr-dropdown-search">
+                                <input type="hidden" name="state" data-toggle="value" />
+                                <button type="button" data-toggle="dropdown" class="zr-dropdown-search-toggle zr-btn">
+                                    <span class="toggle-text">{%= o.STATUS.select %}</span>
+                                    <i class="zricon-arrow-down"></i>
+                                </button> 
+                                <ul class="zr-dropdown-search-menu">
+                                    <div class="zr-dropdown-search-query">
+                                        <span class="search-query-title">{%= o.PLUGIN.search %}</span>
+                                        <input class="search-query-input zr-input" type="text">
+                                    </div>
+                                    <ul class="zr-dropdown-search-list">
+                                        <li class="search-list-item active"><a href="javascript:;" data-val="all">{%= o.STATUS.all %}</a></li>
+                                    </ul>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 第四行 -->
+                <div class="zr-row-flex zr-row-flex-start query-block">
+                    <div class="zr-col-md-8 zr-col-sm-12 zr-col-xs-24 tg-order-item">
+                        <div class="zr-col-8">
+                            <div class="text-title">{%= o.KEY.id %}：</div>
+                        </div>
+                        <div class="zr-col-16">
+                            <input name="id" oninput="value=value.replace(/[^\d]/g,'')" type="text" placeholder="" class="zr-input">
+                        </div>
+                    </div>
+                    <div class="zr-col-md-8 zr-col-sm-12 zr-col-xs-24 tg-order-item">
+                        <div class="zr-col-8">
+                            <div class="text-title">{%= o.KEY.sku %}：</div>
+                        </div>
+                        <div class="zr-col-16">
+                            <input name="productNo" oninput="value=value.replace(/[^\d]/g,'')" type="text" placeholder="" class="zr-input">
+                        </div>
+                    </div>
+                </div>
+                <!-- 第五行 -->
+                <div class="zr-row-flex zr-row-flex-start query-block">
+                    <div class="zr-col-md-8 zr-col-sm-12 zr-col-xs-24 tg-order-item">
+                        <div class="zr-col-8">
+                            <div class="text-title">{%= o.KEY.precreateDate %}：</div>
+                        </div>
+                        <div class="zr-col-16">
+                            <div>
+                                <input name="startTime" type="text" autocomplete="off" placeholder="Select Date" class="zr-input" id="date-1">
+                                <span class="zr-input-addon">
+                                    <i class="zricon-calendar-empty"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zr-col-md-8 zr-col-sm-12 zr-col-xs-24 tg-order-item">
+                        <div class="zr-col-8">
+                            <div class="text-title">{%= o.KEY.lastcreateDate %}：</div>
+                        </div>
+                        <div class="zr-col-16">
+                            <div>
+                                <input name="endTime" type="text" autocomplete="off" placeholder="Select Date" class="zr-input" id="date-2">
+                                <span class="zr-input-addon">
+                                    <i class="zricon-calendar-empty"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zr-col-md-8 zr-col-sm-12 zr-col-xs-24 tg-order-item" style="text-align:right;">
+                        <button type="button" class="zr-btn zr-btn-danger js-query">{%= o.ACTION.search %}
+                            <i class="zricon-spin6 animate-spin" style="display:none"></i>
+                        </button>
+                        <button type="button" class="zr-btn zr-btn-default js-reset">{%= o.ACTION.reset %}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- 按钮条 -->
+        <div class="zr-layout-header tg-order-btn-group">
+            <div class="zr-col-md-12 zr-col-sm-24 zr-col-xs-24 tg-order-item">
+                <button type="button" class="zr-btn zr-btn-danger js-close-all">{%= o.ACTION.uncheck %}</button>
+                <button type="button" class="zr-btn zr-btn-danger js-batch-check">{%= o.ACTION.batch_audit %}</button>
+            </div>
+            <div class="zr-col-md-12 zr-col-sm-24 zr-col-xs-24 tg-order-item tg-order-item-right">
+                <button type="button" class="zr-btn zr-btn-default js-export-detail" style="margin: 0;">{%= o.ACTION.order_detail_export %}</button>
+                <button type="button" class="zr-btn zr-btn-default js-export-order">{%= o.ACTION.order_export %}</button>
+            </div>
+        </div>
+        <!-- 列表 -->
+        <div class="zr-layout-content grey-bgc-4">
+            <div class="tg-order-wrap">
+                <div class="zr-table-wrap-mix zr-table-wrap zr-table-checkbox">
+                    <table id="dt" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" name="cb-check-all" />
+                                </th>
+                                <th>{%= o.KEY.id %}</th>
+                                <th>{%= o.KEY.exportType %}</th>
+                                <th>{%= o.KEY.storeFrom %}</th>
+                                <th>{%= o.KEY.storeTo %}</th>
+                                <th>{%= o.KEY.skuSum %}</th>
+                                <th>{%= o.KEY.units %}</th>
+                                <th>{%= o.KEY.state %}</th>
+                                <th>{%= o.KEY.yn %}</th>
+                                <th>{%= o.KEY.createTime %}</th>
+                                <th>{%= o.KEY.sendCompleteDate %}</th>
+                                <th>{%= o.KEY.receiveCompleteDate %}</th>
+                                <th>{%= o.KEY.creator %}</th>
+                                <th>{%= o.KEY.operation %}</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script type="text/x-tmpl" id="tmpl-batch-check">
+        <!-- 批量审核 -->
+        <div class="zr-modal zr-modal-normal zr-modal-size-normal" id="batchCheckModal">
+            <div class="zr-modal-dialog">
+                <div class="zr-modal-content">
+                    <div class="zr-modal-header">
+                        <p class="zr-modal-title">
+                            <span>{%= o.TEXT.audit_notes_settings %}</span>
+                            <i class="zricon-close zr-modal-close"></i>
+                        </p>
+                    </div>
+                    <div class="zr-modal-body">
+                        <textarea class="zr-textarea textarea-batch js-batch-content" maxlength="100" placeholder="{%= o.TEXT.audit_notes_placeholder %}"></textarea>
+                    </div>
+                    <div class="zr-modal-footer">
+                        <button class="zr-btn zr-btn-default zr-modal-btn zr-modal-cancel">{%= o.ACTION.cancel %}</button>
+                        <button class="zr-btn zr-btn-danger zr-modal-btn zr-modal-enter js-batch-pass">{%= o.ACTION.pass %}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script type="text/x-tmpl" id="tmpl-check">
+        <div class="zr-modal zr-modal-normal zr-modal-size-normal" id="checkModal">
+            <div class="zr-modal-dialog">
+                <div class="zr-modal-content">
+                    <div class="zr-modal-header">
+                        <p class="zr-modal-title">
+                            <span>{%= o.TEXT.order_check %}</span>
+                            <i class="zricon-close zr-modal-close"></i>
+                        </p>
+                    </div>
+                    <div class="zr-modal-body">
+                        <textarea class="zr-textarea textarea-batch js-check-content" maxlength="100" placeholder="{%= o.TEXT.audit_notes_placeholder %}"></textarea>
+                    </div>
+                    <div class="zr-modal-footer">
+                        <button class="zr-btn zr-btn-default zr-modal-btn zr-modal-cancel">{%= o.ACTION.cancel %}</button>
+                        <button class="zr-btn zr-btn-danger zr-modal-btn zr-modal-enter js-check-item">{%= o.ACTION.pass %}
+                            <i class="zricon-spin6 animate-spin" style="display:none"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script type="text/x-tmpl" id="tmpl-reject">
+        <div class="zr-modal zr-modal-normal zr-modal-size-normal" id="rejectModal">
+            <div class="zr-modal-dialog">
+                <div class="zr-modal-content">
+                    <div class="zr-modal-header">
+                        <p class="zr-modal-title">
+                            <span>{%= o.TEXT.order_reject %}</span>
+                            <i class="zricon-close zr-modal-close"></i>
+                        </p>
+                    </div>
+                    <div class="zr-modal-body">
+                        <textarea class="zr-textarea textarea-batch js-reject-content" maxlength="100" placeholder="{%= o.TEXT.audit_notes_placeholder %}"></textarea>
+                    </div>
+                    <div class="zr-modal-footer">
+                        <button class="zr-btn zr-btn-default zr-modal-btn zr-modal-cancel">{%= o.ACTION.cancel %}</button>
+                        <button class="zr-btn zr-btn-danger zr-modal-btn zr-modal-enter js-reject-item">{%= o.ACTION.ok %}
+                            <i class="zricon-spin6 animate-spin" style="display:none"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+
+    <!-- script -->
+    <script src="//storage.360buyimg.com/v1.0.0/zr.min.js"></script>
+    <script type="text/javascript">
+        var baseUrl, requestTime;
+        // Zr.global.env = 'dist'; 
+        if (Zr.global.env === 'dist') {
+            baseUrl = '/static/components/'; //发布环境
+            requestTime = false
+        } else {
+            baseUrl = '/dest/components/'; //开发环境
+            requestTime = true
+        }
+        // var language = Zr.tools.cookie('language') === 'zh_CN'?'zh-CN':'EN';
+        var language = Zr.tools.cookie('language') === 'en_US'?'EN':'zh-CN';
+        Zr.config({
+            baseUrl: baseUrl, //本地测试
+            requestTime: requestTime,
+            language: language
+        })
+
+        /**
+         * 根据url判断语言
+         * 加载相应语言包
+         * 初始化
+         */
+
+        Zr.ready(function () {
+            Zr.use('./demo1/entrance.js');
+        })
+    </script>
+</body>
+
+</html>

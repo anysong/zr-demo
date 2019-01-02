@@ -1,0 +1,23 @@
+{
+  "errCode": "0",
+  "errMsg": "",
+  "success": true,
+  "data": {
+    "artNo": 10001010322,
+    "artName": "格力空调",
+    "lengths": "0.8",
+    "widths": "0.5",
+    "heights": "2.1",
+    "volume": "1.8",
+    "weights": "0.2",
+    "reason": "原因原因原因原因原因",
+    "storeFrom": 112,
+    "storeTo": 110,
+    "category1": 11,
+    "category2": 12,
+    "category3": 13,
+    "planNum": 10,
+    "supplyNumTo": 100,
+    "supplyNum": 100
+  }
+}
